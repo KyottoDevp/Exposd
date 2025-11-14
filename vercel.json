@@ -1,15 +1,10 @@
 {
   "version": 2,
+  "name": "meu-site",
   "builds": [
-    {
-      "src": "EXPOSED.HTML",
-      "use": "@vercel/static"
-    }
+    { "src": "index.html", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/EXPOSED.HTML"
-    }
+    { "src": "/(.*)", "dest": "index.html" }
   ]
 }
