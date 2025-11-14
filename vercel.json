@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "EXPOSED.HTML",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/EXPOSED.HTML"
+    }
+  ]
+}
