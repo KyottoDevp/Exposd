@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title data-lang-key="pageTitle">Exposed: Ayukystar (The Farce)</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF073A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3Cline x1='12' y1='9' x2='12' y2='13'/%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'/%3E%3C/svg%3E">
+
+    <meta name="description" content="An investigative Compilation detailing the allegations of abuse, toxic behavior, and questionable monetization within Ayukystar's server." data-lang-key="metaDescription">
+    <meta name="keywords" content="Ayuky, Exposed, Allegations, Discord Server, Controversy, Abusive Moderation, Marçal, GLE Ports, Tavv">
+    
+    <meta property="og:title" content="Investigative Dossier: Ayukystar (The Farce)" data-lang-key="ogTitle">
+    <meta property="og:description" content="In-depth analysis of the allegations of misconduct and questionable practices on Ayukystar's server." data-lang-key="ogDescription">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.imgur.com/gK9pI65.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        /* --- Variáveis Globais de Design --- */
+        :root {
+            --color-background: #0D0D0D; /* Preto mais profundo */
+            --color-surface: #1A1A1A;
+            --color-border: #2C2C2C;
+            --color-text-primary: #F0F0F0;
+            --color-text-secondary: #A0A0A0;
+            --color-accent-primary: #FF073A; /* Vermelho vibrante e brilhante */
+            --color-accent-secondary: #FFC107;
+            --font-primary: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+        }
+
+        /* --- Reset e Configurações Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            line-height: 1.7;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* --- Container Principal --- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .container.modal-content-blur {
+            filter: blur(8px);
+        }
+
+        /* --- Cabeçalho --- */
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--color-accent-primary);
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            color: var(--color-accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(255, 7, 58, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: var(--color-text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Estrutura das Seções --- */
+        .section {
+            background-color: var(--color-surface);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--color-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: var(--color-accent-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+        
+        .section h3 {
+            font-size: 1.4em;
+            color: var(--color-accent-secondary);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* --- Ícones SVG Personalizados para Títulos --- */
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            margin-right: 15px;
+            background-color: var(--color-accent-secondary);
+        }
+
+        #intro h2::before {
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+        #behavior h2::before {
+             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='8.5' cy='7.5' r='4.5'/%3E%3Cline x1='18' y1='8' x2='23' y2='13'/%3E%3Cline x1='23' y1='8' x2='18' y2='13'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+        #moderation h2::before {
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h9'/%3E%3Cpath d='M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+        #power-abuse h2::before {
+             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/%3E%3Cline x1='12' y1='9' x2='12' y2='13'/%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+        #monetization h2::before {
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 1v22'/%3E%3Cpath d='M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+        /* O SVG para 'hornet-case' estava quebrado (GgtC/svg>). Corrigido. */
+        #hornet-case h2::before {
+             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 22h4'/%3E%3Cpath d='M4 14a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2'/%3E%3Cpath d='M2 14h20'/%3E%3Cpath d='M14 18v-4h-4v4'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+        #gle-case h2::before {
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+        #chat-content h2::before {
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+
+
+        /* --- Conteúdo Geral --- */
+        .section p, .section ul {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: var(--color-text-secondary);
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .section li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .section li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--color-accent-primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        strong, b {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        code {
+            background-color: #282c34;
+            padding: 3px 6px;
+            border-radius: 6px;
+            font-family: var(--font-monospace);
+            color: #f06292;
+            font-size: 0.9em;
+        }
+
+        /* --- Citações e Evidências --- */
+        blockquote {
+            background-color: rgba(255, 7, 58, 0.05);
+            border-left: 5px solid var(--color-accent-primary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+
+        blockquote strong {
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+            color: var(--color-text-primary);
+        }
+
+        /* --- Seção de Provas Visuais --- */
+        .evidence-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .evidence-gallery figcaption {
+            grid-column: 1 / -1; /* Legenda ocupa a linha inteira */
+            font-size: 1.1em;
+            color: var(--color-text-primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 5px;
+        }
+
+        .evidence-item {
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 2px solid var(--color-border);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .evidence-item:hover {
+            transform: scale(1.05);
+            border-color: var(--color-accent-primary);
+        }
+
+        .evidence-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Modal de Imagem --- */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .image-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-modal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3em;
+            color: white;
+            cursor: pointer;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+        
+        .close-modal:hover {
+            transform: scale(1.2);
+            color: var(--color-accent-primary);
+        }
+
+        /* --- Rodapé --- */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+            font-size: 0.9em;
+        }
+
+        /* --- NOVO: Botão de Alternância de Idioma --- */
+        .lang-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001; /* Acima do overlay do modal */
+            background-color: var(--color-surface);
+            color: var(--color-accent-secondary);
+            border: 2px solid var(--color-border);
+            border-radius: 50px;
+            padding: 10px 18px;
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: 0.9em;
+            cursor: pointer;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--color-accent-secondary);
+            color: var(--color-text-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <button class="lang-toggle" id="langToggle" aria-label="Change language to Portuguese">PT-BR</button>
+
+    <div class="container">
+        
+        <header class="header">
+            <h1 data-lang-key="headerTitle">Investigative compilation </h1>
+            <p data-lang-key="headerSubtitle">Analysis of Inappropriate Behavior, Abuse of Power, and Questionable Monetization on Ayuky's Server</p>
+        </header>
+
+        <main>
+            <section class="section" id="intro">
+                <h2 data-lang-key="sectionIntroTitle">Introduction and Summary of Allegations</h2>
+                <p data-lang-key="sectionIntroP1">This document consolidates a series of reports, accounts, and evidence collected from multiple users, pointing to a pattern of alarming conduct and unethical practices by the server administration led by Ayuky. The central accusations addressed in this dossier include:</p>
+                <ul>
+                    <li data-lang-key="sectionIntroLi1">Improper and sexually explicit conduct by the administrator in public channels with minors.</li>
+                    <li data-lang-key="sectionIntroLi2">Selective and biased application of warnings, configuring abuse of power and favoritism (Marçal Case).</li>
+                    <li data-lang-key="sectionIntroLi3">Creation of an environment without freedom of expression, where criticism of the owner results in a ban.</li>
+                    <li data-lang-key="sectionIntroLi4">An aggressive monetization system with a total lack of financial transparency.</li>
+                    <li data-lang-key="sectionIntroLi5">Misappropriation and improper monetization of other developers' work (Hornet Bot case).</li>
+                    <li data-lang-key="sectionIntroLi6">Deliberate leaking of the GLE Ports beta, followed by a smear campaign.</li>
+                    <li data-lang-key="sectionIntroLi7">Defamation and false accusations against other developers' servers (Tavv Case).</li>
+                    <li data-lang-key="sectionIntroLi8">Normalization of adult content in channels with a high presence of minors.</li>
+                    <li data-lang-key="sectionIntroLi9">Suppression of serious allegations, including accusations of pedophilia, to protect the server's image.</li>
+                    <li data-lang-key="sectionIntroLi10">Dissemination of false malware accusations against rival development teams.</li>
+                </ul>
+            </section>
+
+            <section class="section" id="behavior">
+                <h2 data-lang-key="sectionBehaviorTitle">1. Inappropriate Administrator Behavior</h2>
+                <p data-lang-key="sectionBehaviorP1">Despite server rule #12 explicitly prohibiting content of a sexual nature, especially due to the presence of minors, there are multiple records of the founder himself, Ayuky, violating this guideline in public channels. Sexually explicit statements were made openly, creating a toxic and unsafe environment.</p>
+                <blockquote>
+                    <strong data-lang-key="sectionBehaviorBq1">Direct Evidence (Print Transcript):</strong><br>
+                    "I like sucking dicks."
+                </blockquote>
+                <p data-lang-key="sectionBehaviorP2">Such behavior not only contradicts the community's rules but also demonstrates a severe lack of responsibility and suitability for managing a digital space that welcomes a young and vulnerable audience.</p>
+                
+                <figure class="evidence-gallery">
+                    <figcaption><strong data-lang-key="visualEvidence">Visual Evidence:</strong></figcaption>
+                    <div class="evidence-item">
+                        <img src="https://iili.io/f9dQ9cb.jpg" alt="Proof of inappropriate behavior 1" data-lang-key-alt="altBehavior1">
+                    </div>
+                     <div class="evidence-item">
+                        <img src="https://iili.io/f9d4eUl.png" alt="Proof of inappropriate behavior 2" data-lang-key-alt="altBehavior2">
+                    </div>
+                    <div class="evidence-item">
+                        <img src="https://iili.io/f9Jrjg2.jpg" alt="Proof of inappropriate behavior 3 (placeholder)" data-lang-key-alt="altBehavior3">
+                    </div>
+                    <div class="evidence-item">
+                        <img src="https://iili.io/f9dS1ja.png" alt="Proof of inappropriate behavior 4 (placeholder)" data-lang-key-alt="altBehavior4">
+                    </div>
+                </figure>
+            </section>
+
+            <section class="section" id="moderation">
+                <h2 data-lang-key="sectionModTitle">2. Biased Moderation and Favoritism: The Marçal Case</h2>
+                <p data-lang-key="sectionModP1">Evidence points to an inconsistent moderation system, where rules are strictly enforced for regular users but ignored for administration allies. Ayuky is recorded issuing warnings for infractions he himself commits, using the <code>warn</code> system as a control tool.</p>
+                <blockquote>
+                    <strong data-lang-key="sectionModBq1">Case Analysis: 'Helper' Marçal</strong><br>
+                    A user (and 'helper') known as <strong>Marçal</strong> accumulated multiple serious infractions, including "sexist image," "calling a child autistic," and "jokes involving Adolf Hitler and the Nazi party." Ayuky himself discusses "merging the first and third [warn] into one," indicating awareness and direct management of the situation.
+                </blockquote>
+                <p data-img-key="sectionModP2">Despite the severity and accumulation of warnings, the case exposes clear favoritism:</p>
+                <ul>
+                    <li data-lang-key="sectionModLi1"><strong>Kept in Position:</strong> Even with <strong>two active 'warns'</strong> and a history of toxic behavior, Marçal continued (and continues) to act as a moderator and 'helper'.</li>
+                    <li data-lang-key="sectionModLi2"><strong>Protection from Administration:</strong> Reports indicate his 'warn' was <strong>recently removed for "being friends with the owners,"</strong> proving the rules don't apply to everyone. The moderation actively gave him the role and tries to hide his history.</li>
+                    <li data-lang-key="sectionModLi3"><strong>18+ Environment:</strong> There are reports that Marçal's mere presence in 'calls' is the trigger for <strong>"18+ slutty conversations,"</strong> normalizing an environment that the server's own rules prohibit, but which is tolerated by the administration when coming from its allies.</li>
+                </ul>
+                <p data-lang-key="sectionModP3">This duality of standards erodes the moderation's legitimacy and fosters an environment of distrust and injustice.</p>
+                
+                <figure class="evidence-gallery">
+                    <figcaption><strong data-lang-key="visualEvidenceMarcal">Visual Evidence (Marçal Case):</strong></figcaption>
+                     <div class="evidence-item">
+                        <img src="https://iili.io/KyZE7b2.jpg" alt="Proof of inconsistent moderation 1 - Marçal Warn PT" data-lang-key-alt="altMarcal1">
+                    </div>
+                    <div class="evidence-item">
+                        <img src="https://iili.io/KyZVoiP.png" alt="Proof of inconsistent moderation 2 - Marçal Warn EN" data-lang-key-alt="altMarcal2">
+                    </div>
+                </figure>
+            </section>
+            
+            <section class="section" id="power-abuse">
+                <h2 data-lang-key="sectionAbuseTitle">3. Abuse of Power and Community Suppression</h2>
+                <p data-lang-key="sectionAbuseP1">The Marçal case is a symptom of a larger problem: the use of the moderation system as a tool for personal control and abuse of power, rather than a mechanism for community health.</p>
+                <ul>
+                    <li data-lang-key="sectionAbuseLi1"><strong>Personal Use of the System:</strong> It's
+                    evident that the 'WARN' system is used <strong>"for their [the administration's] own use,"</strong> and not to apply fair punishments to those who deserve them. Punishments are selective and based on friendship.</li>
+                    <li data-lang-key="sectionAbuseLi2"><strong>Lack of Freedom of Expression:</strong> The server operates under a regime where criticism is not tolerated. Multiple users report that <strong>"if you don't worship the owner, you will probably get muted or banned."</strong></li>
+                    <li data-lang-key="sectionAbuseLi3"><strong>Hostile Environment:</strong> Freedom of expression is null, creating a culture of fear where only praising the administration is allowed, suffocating any form of debate or constructive criticism.</li>
+                    <li data-lang-key="sectionAbuseLi4"><strong>Suppression of Serious Reports:</strong> In a notorious incident, a user was <strong>muted for 24 hours</strong> after reporting to the staff an image from another user claiming to be a pedophile. The staff took 10 minutes to see the report and, instead of acting against the offender, punished the reporter, clear case of suppression and injustice.</li>
+                </ul>
+
+                <figure class="evidence-gallery">
+                     <figcaption><strong data-lang-key="visualEvidenceAbuse">Visual Evidence (Abuse of Power):</strong></figcaption>
+                     <div class="evidence-item">
+                         <img src="https://iili.io/f92Hbmg.png" alt="Proof of user Vinni's unfair mute for simply reporting a crime" data-lang-key-alt="altAbuse1">
+                     </div>
+                 </figure>
+            </section>
+
+            <section class="section" id="monetization">
+                <h2 data-lang-key="sectionMoneyTitle">4. Aggressive and Non-Transparent Monetization</h2>
+                <p data-lang-key="sectionMoneyP1">There are strong indications that the server functions as a front for Ayuky's personal monetization, exploiting the work of developers and the community's generosity.</p>
+                <ul>
+                    <li data-lang-key="sectionMoneyLi1"><strong>Multiple Income Sources:</strong> Ayuky receives funding through direct donations, commissions, and a page on the <strong>Ko-fi</strong> platform.</li>
+                    <li data-lang-key="sectionMoneyLi2"><strong>Monetization of Others' Code:</strong> The main accusation is that he "monetizes other people's work," acting as an intermediary who catalogs and distributes developers' work, receiving funds for it.</li>
+                    <li data-lang-key="sectionMoneyLi3"><strong>Lack of Transparency:</strong> The server, with over 40,000 members, generates a considerable volume of donations. However, there is no accountability for where this money is applied. Reports suggest that the funds are <strong>diverted for personal use</strong>, instead of being reinvested in the community or projects.</li>
+                </ul>
+            </section>
+            
+            <section class="section" id="gle-case">
+                <h2 data-lang-key="sectionGleTitle">5. GLE Ports Beta Leak and Smear Campaign</h2>
+                <p data-lang-key="sectionGleP1">One of the most serious incidents was the deliberate leaking of a project under development, followed by a hostile campaign for self-promotion.</p>
+                <blockquote>
+                    <strong data-lang-key="sectionGleBq1">Report from Ryu (Ex-Moderator of Silksong Mobile Modding):</strong><br>
+                    "I am Ryu, the first moderator of the Silksong Mobile Modding server. I would like to report that the user Ayukstar leaked the early beta of GLE Ports before its worldwide release."
+                </blockquote>
+                <p data-lang-key="sectionGleP2">In-depth investigations and additional reports debunk Ayuky's initial justification ("the version didn't run on his phone") and reveal his true motivations:</p>
+                <ul>
+                    <li data-lang-key="sectionGleLi1"><strong>Real Motivation:</strong> The leak was premeditated, with the aim of <strong>inflating his own ego</strong> and <strong>attracting members to his server</strong>.</li>
+                    <li data-lang-key="sectionGleLi2"><strong>Fabricated "EXPOSED":</strong> Shortly after the leak, Ayuky published his own "exposed" against the GLE Ports team to position himself as a victim and defame the developers.</li>
+                     <li data-lang-key="sectionGleLi3"><strong>False Malware Accusation:</strong> Subsequently, unfounded accusations emerged that the Weave Wing team (related to the case) was distributing malware, a tactic to undermine competition and divert attention from his own actions.</li>
+                </ul>
+                
+                <h3 data-lang-key="sectionGleH3">Developments: Cross-Accusations and Defamation</h3>
+                <p data-lang-key="sectionGleP3">The GLE Ports case escalated into a broader smear campaign, revealing questionable tactics to maintain control of the narrative:</p>
+                <ul>
+                    <li data-lang-key="sectionGleLi4"><strong>Cover-up Attempt:</strong> It was revealed that Ayuky <strong>asked 'Ryu' (also known as 'Hann') to hide the fact</strong> that he was responsible for the leak, a clear attempt to manipulate the facts.</li>
+                    <li data-lang-key="sectionGleLi5"><strong>"Both Were Wrong" Narrative:</strong> Although some point out that "GLE Ports was wrong on some points," it is emphasized that Ayuky "was still wrong," and his subsequent actions of defamation worsened the situation.</li>
+                    <li data-lang-key="sectionGleLi6"><strong>Attacks on Other Servers (Tavv Case):</strong> Recently, Ayuky's administration was seen <strong>mocking the server of 'Tavv,'</strong> a respected developer. They accuse the server of being a "clique" and, seriously, of <strong>"having Nazis there."</strong></li>
+                    <li data-lang-key="sectionGleLi7"><strong>Hypocrisy:</strong> Users point out the irony of the situation, highlighting that Tavv "doesn't get involved in any fights," while "Ayuky, in less than 3 months, has [controversies with] GLE ports [and] Weave Wings, pathetic." The attacks are seen as a distraction tactic to defame competitors.</li>
+                </ul>
+
+                <figure class="evidence-gallery">
+                     <figcaption><strong data-lang-key="visualEvidenceSmear">Visual Evidence (Smear Campaign):</strong></figcaption>
+                     <div class="evidence-item">
+                         <img src="https://iili.io/KyZVoiP.png" alt="False accusation of spyware" data-lang-key-alt="altSmear1">
+                     </div>
+                     <div class="evidence-item">
+                        <img src="https://iili.io/Kytdga4.jpg" alt="Apology from the Weave Team" data-lang-key-alt="altSmear2">
+                    </div>
+                    <div class="evidence-item">
+                        <img src="https://iili.io/Kytm0iv.png" alt="Proof of Ayuky asking Ryu (Hann) to cover up the leak" data-lang-key-alt="altSmear3">
+                    </div>
+                    <div class="evidence-item">
+                        <img src="https://iili.io/KyDKGQS.jpg" alt="Proof of the administration mocking Tavv's server" data-lang-key-alt="altSmear4">
+                    </div>
+                    <div class="evidence-item">
+                        <img src="https://iili.io/f92F7Kx.png" alt="Additional proof (placeholder)" data-lang-key-alt="altSmear5">
+                    </div>
+                 </figure>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p data-lang-key="footerDisclaimer">This document is a compilation of reports and evidence provided by community members. Its purpose is informational.</p>
+            <p><span data-lang-key="footerDatePrefix">Last updated:</span> <span id="last-updated">Today's Date</span>.</p>
+        </footer>
+
+    </div>
+
+    <div class="image-modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img src="" alt="Full-screen image" id="modalImageContent" data-lang-key-alt="altModal">
+    </div>
+
+    <script>
+        // --- NOVO: Dicionário de Traduções ---
+        // Este objeto armazena todo o texto em ambos os idiomas.
+        // As chaves (ex: 'pageTitle') correspondem aos atributos 'data-lang-key' no HTML.
+        const translations = {
+            'en': {
+                'locale': 'en-US',
+                'langToggle': 'PT-BR',
+                'langToggleAria': 'Change language to Portuguese',
+                'pageTitle': 'Exposed: Ayukystar (The Farce)',
+                'metaDescription': "An investigative dossier detailing the allegations of abuse, toxic behavior, and questionable monetization within Ayukystar's server.",
+                'ogTitle': 'Investigative Dossier: Ayukystar (The Farce)',
+                'ogDescription': "In-depth analysis of the allegations of misconduct and questionable practices on Ayukystar's server.",
+                'headerTitle': 'Investigative Dossier',
+                'headerSubtitle': "Analysis of Inappropriate Behavior, Abuse of Power, and Questionable Monetization on Ayuky's Server",
+                'sectionIntroTitle': 'Introduction and Summary of Allegations',
+                'sectionIntroP1': "This document consolidates a series of reports, accounts, and evidence collected from multiple users, pointing to a pattern of alarming conduct and unethical practices by the server administration led by Ayuky. The central accusations addressed in this dossier include:",
+                'sectionIntroLi1': 'Improper and sexually explicit conduct by the administrator in public channels with minors.',
+                'sectionIntroLi2': 'Selective and biased application of warnings, configuring abuse of power and favoritism (Marçal Case).',
+                'sectionIntroLi3': "Creation of an environment without freedom of expression, where criticism of the owner results in a ban.",
+                'sectionIntroLi4': 'An aggressive monetization system with a total lack of financial transparency.',
+                'sectionIntroLi5': "Misappropriation and improper monetization of other developers' work (Hornet Bot case).",
+                'sectionIntroLi6': 'Deliberate leaking of the GLE Ports beta, followed by a smear campaign.',
+                'sectionIntroLi7': "Defamation and false accusations against other developers' servers (Tavv Case).",
+                'sectionIntroLi8': 'Normalization of adult content in channels with a high presence of minors.',
+                'sectionIntroLi9': "Suppression of serious allegations, including accusations of pedophilia, to protect the server's image.",
+                'sectionIntroLi10': 'Dissemination of false malware accusations against rival development teams.',
+                'sectionBehaviorTitle': '1. Inappropriate Administrator Behavior',
+                'sectionBehaviorP1': "Despite server rule #12 explicitly prohibiting content of a sexual nature, especially due to the presence of minors, there are multiple records of the founder himself, Ayuky, violating this guideline in public channels. Sexually explicit statements were made openly, creating a toxic and unsafe environment.",
+                'sectionBehaviorBq1': 'Direct Evidence (Print Transcript):',
+                'sectionBehaviorP2': "Such behavior not only contradicts the community's rules but also demonstrates a severe lack of responsibility and suitability for managing a digital space that welcomes a young and vulnerable audience.",
+                'visualEvidence': 'Visual Evidence:',
+                'altBehavior1': 'Proof of inappropriate behavior 1',
+                'altBehavior2': 'Proof of inappropriate behavior 2',
+                'altBehavior3': 'Proof of inappropriate behavior 3 (placeholder)',
+                'altBehavior4': 'Proof of inappropriate behavior 4 (placeholder)',
+                'sectionModTitle': '2. Biased Moderation and Favoritism: The Marçal Case',
+                'sectionModP1': "Evidence points to an inconsistent moderation system, where rules are strictly enforced for regular users but ignored for administration allies. Ayuky is recorded issuing warnings for infractions he himself commits, using the <code>warn</code> system as a control tool.",
+                'sectionModBq1': "Case Analysis: 'Helper' Marçal",
+                'sectionModP2': "Despite the severity and accumulation of warnings, the case exposes clear favoritism:",
+                'sectionModLi1': "<strong>Kept in Position:</strong> Even with <strong>two active 'warns'</strong> and a history of toxic behavior, Marçal continued (and continues) to act as a moderator and 'helper'.",
+                'sectionModLi2': "<strong>Protection from Administration:</strong> Reports indicate his 'warn' was <strong>recently removed for \"being friends with the owners,\"</strong> proving the rules don't apply to everyone. The moderation actively gave him the role and tries to hide his history.",
+                'sectionModLi3': "<strong>18+ Environment:</strong> There are reports that Marçal's mere presence in 'calls' is the trigger for <strong>\"18+ slutty conversations,\"</strong> normalizing an environment that the server's own rules prohibit, but which is tolerated by the administration when coming from its allies.",
+                'sectionModP3': "This duality of standards erodes the moderation's legitimacy and fosters an environment of distrust and injustice.",
+                'visualEvidenceMarcal': 'Visual Evidence (Marçal Case):',
+                'altMarcal1': 'Proof of inconsistent moderation 1 - Marçal Warn PT',
+                'altMarcal2': 'Proof of inconsistent moderation 2 - Marçal Warn EN',
+                'sectionAbuseTitle': '3. Abuse of Power and Community Suppression',
+                'sectionAbuseP1': "The Marçal case is a symptom of a larger problem: the use of the moderation system as a tool for personal control and abuse of power, rather than a mechanism for community health.",
+                'sectionAbuseLi1': "<strong>Personal Use of the System:</strong> It's evident that the 'WARN' system is used <strong>\"for their [the administration's] own use,\"</strong> and not to apply fair punishments to those who deserve them. Punishments are selective and based on friendship.",
+                'sectionAbuseLi2': "<strong>Lack of Freedom of Expression:</strong> The server operates under a regime where criticism is not tolerated. Multiple users report that <strong>\"if you don't worship the owner, you will probably get muted or banned.\"</strong>",
+                'sectionAbuseLi3': '<strong>Hostile Environment:</strong> Freedom of expression is null, creating a culture of fear where only praising the administration is allowed, suffocating any form of debate or constructive criticism.',
+                'sectionAbuseLi4': "<strong>Suppression of Serious Reports:</strong> In a notorious incident, a user was <strong>muted for 24 hours</strong> after reporting to the staff an image from another user claiming to be a pedophile. The staff took 10 minutes to see the report and, instead of acting against the offender, punished the reporter, clear case of suppression and injustice.",
+                'visualEvidenceAbuse': 'Visual Evidence (Abuse of Power):',
+                'altAbuse1': "Proof of user Vinni's unfair mute for simply reporting a crime",
+                'sectionMoneyTitle': '4. Aggressive and Non-Transparent Monetization',
+                'sectionMoneyP1': "There are strong indications that the server functions as a front for Ayuky's personal monetization, exploiting the work of developers and the community's generosity.",
+                'sectionMoneyLi1': '<strong>Multiple Income Sources:</strong> Ayuky receives funding through direct donations, commissions, and a page on the <strong>Ko-fi</strong> platform.',
+                'sectionMoneyLi2': "<strong>Monetization of Others' Code:</strong> The main accusation is that he \"monetizes other people's work,\" acting as an intermediary who catalogs and distributes developers' work, receiving funds for it.",
+                'sectionMoneyLi3': "<strong>Lack of Transparency:</strong> The server, with over 40,000 members, generates a considerable volume of donations. However, there is no accountability for where this money is applied. Reports suggest that the funds are <strong>diverted for personal use</strong>, instead of being reinvested in the community or projects.",
+                'sectionGleTitle': '5. GLE Ports Beta Leak and Smear Campaign',
+                'sectionGleP1': 'One of the most serious incidents was the deliberate leaking of a project under development, followed by a hostile campaign for self-promotion.',
+                'sectionGleBq1': "Report from Ryu (Ex-Moderator of Silksong Mobile Modding):",
+                'sectionGleP2': 'In-depth investigations and additional reports debunk Ayuky\'s initial justification ("the version didn\'t run on his phone") and reveal his true motivations:',
+                'sectionGleLi1': '<strong>Real Motivation:</strong> The leak was premeditated, with the aim of <strong>inflating his own ego</strong> and <strong>attracting members to his server</strong>.',
+                'sectionGleLi2': '<strong>Fabricated "EXPOSED":</strong> Shortly after the leak, Ayuky published his own "exposed" against the GLE Ports team to position himself as a victim and defame the developers.',
+                'sectionGleLi3': '<strong>False Malware Accusation:</strong> Subsequently, unfounded accusations emerged that the Weave Wing team (related to the case) was distributing malware, a tactic to undermine competition and divert attention from his own actions.',
+                'sectionGleH3': 'Developments: Cross-Accusations and Defamation',
+                'sectionGleP3': 'The GLE Ports case escalated into a broader smear campaign, revealing questionable tactics to maintain control of the narrative:',
+                'sectionGleLi4': "<strong>Cover-up Attempt:</strong> It was revealed that Ayuky <strong>asked 'Ryu' (also known as 'Hann') to hide the fact</strong> that he was responsible for the leak, a clear attempt to manipulate the facts.",
+                'sectionGleLi5': '<strong>"Both Were Wrong" Narrative:</strong> Although some point out that "GLE Ports was wrong on some points," it is emphasized that Ayuky "was still wrong," and his subsequent actions of defamation worsened the situation.',
+                'sectionGleLi6': "<strong>Attacks on Other Servers (Tavv Case):</strong> Recently, Ayuky's administration was seen <strong>mocking the server of 'Tavv,'</strong> a respected developer. They accuse the server of being a \"clique\" and, seriously, of <strong>\"having Nazis there.\"</strong>",
+                'sectionGleLi7': "<strong>Hypocrisy:</strong> Users point out the irony of the situation, highlighting that Tavv \"doesn't get involved in any fights,\" while \"Ayuky, in less than 3 months, has [controversies with] GLE ports [and] Weave Wings, pathetic.\" The attacks are seen as a distraction tactic to defame competitors.",
+                'visualEvidenceSmear': 'Visual Evidence (Smear Campaign):',
+                'altSmear1': 'False accusation of spyware',
+                'altSmear2': 'Apology from the Weave Team',
+                'altSmear3': 'Proof of Ayuky asking Ryu (Hann) to cover up the leak',
+                'altSmear4': "Proof of the administration mocking Tavv's server",
+                'altSmear5': 'Additional proof (placeholder)',
+                'footerDisclaimer': 'This document is a compilation of reports and evidence provided by community members. Its purpose is informational.',
+                'footerDatePrefix': 'Last updated:',
+                'altModal': 'Full-screen image'
+            },
+            'pt': {
+                'locale': 'pt-BR',
+                'langToggle': 'EN-US',
+                'langToggleAria': 'Mudar idioma para Inglês',
+                'pageTitle': 'Exposed: Ayukystar (A Farsa)',
+                'metaDescription': 'Um Compilamento  investigativo detalhando as alegações de abuso, comportamento tóxico e monetização questionável no servidor de Ayukystar.',
+                'ogTitle': ' Compilamento Investigativo: Ayukystar (A Farsa)',
+                'ogDescription': 'Análise aprofundada das alegações de má conduta e práticas questionáveis no servidor de Ayuky.',
+                'headerTitle': 'Compilamento Investigativo',
+                'headerSubtitle': 'Análise de Comportamentos Inadequados, Abuso de Poder e Monetização Questionável no Servidor de Ayuky',
+                'sectionIntroTitle': 'Introdução e Sumário das Alegações',
+                'sectionIntroP1': 'Este documento consolida uma série de denúncias, relatos e evidências coletadas de múltiplos usuários, que apontam para um padrão de conduta alarmante e práticas antiéticas por parte da administração do servidor liderado por Ayuky. As acusações centrais abordadas neste Compilamento incluem:',
+                'sectionIntroLi1': 'Conduta imprópria e sexualmente explícita do administrador em canais públicos com menores.',
+                'sectionIntroLi2': 'Aplicação seletiva e parcial de advertências, configurando abuso de poder e favoritismo (Caso Marçal).',
+                'sectionIntroLi3': 'Criação de um ambiente sem liberdade de expressão, onde críticas ao dono resultam em banimento.',
+                'sectionIntroLi4': 'Um sistema de monetização agressivo com total falta de transparência financeira.',
+                'sectionIntroLi5': 'Apropriação e monetização indevida do trabalho de outros desenvolvedores (caso Bot Hornet).',
+                'sectionIntroLi6': 'Vazamento deliberado da beta da GLE Ports, seguido de uma campanha de difarmação.',
+                'sectionIntroLi7': 'Difamação e acusações falsas contra servidores de outros desenvolvedores (Caso Tavv).',
+                'sectionIntroLi8': 'Normalização de conteúdo adulto em canais com alta presença de menores.',
+                'sectionIntroLi9': 'Supressão de denúncias graves, incluindo acusações de pedofilia, para proteger a imagem do servidor.',
+                'sectionIntroLi10': 'Disseminação de acusações falsas de malware contra equipes de desenvolvimento rivais.',
+                'sectionBehaviorTitle': '1. Comportamento Inapropriado do Administrador',
+                'sectionBehaviorP1': 'Apesar da regra nº 12 do servidor proibir explicitamente conteúdo de natureza sexual, principalmente devido à presença de menores, existem múltiplos registros do próprio fundador, Ayuky, violando esta diretriz em canais públicos. Declarações sexualmente explícitas foram feitas abertamente, criando um ambiente tóxico e inseguro.',
+                'sectionBehaviorBq1': 'Evidência Direta (Transcrição de Print):',
+                'sectionBehaviorP2': 'Tal comportamento não só contradiz as regras da comunidade, mas também demonstra uma grave falta de responsabilidade e de adequação para administrar um espaço digital que acolhe um público jovem e vulnerável.',
+                'visualEvidence': 'Provas Visuais:',
+                'altBehavior1': 'Prova de comportamento inadequado 1',
+                'altBehavior2': 'Prova de comportamento inadequado 2',
+                'altBehavior3': 'Prova de comportamento inadequado 3 (placeholder)',
+                'altBehavior4': 'Prova de comportamento inadequado 4 (placeholder)',
+                'sectionModTitle': '2. Moderação Parcial e Favoritismo: O Caso Marçal',
+                'sectionModP1': 'Evidências apontam para um sistema de moderação inconsistente, onde as regras são aplicadas de forma rigorosa para usuários comuns, mas ignoradas para aliados da administração. Ayuky é registrado aplicando advertências por infrações que ele mesmo comete, utilizando o sistema de <code>warn</code> como uma ferramenta de controle.',
+                'sectionModBq1': "Análise de Caso: O 'Helper' Marçal",
+                'sectionModP2': 'Apesar da gravidade e do acúmulo de advertências, o caso expõe um claro favoritismo:',
+                'sectionModLi1': '<strong>Manutenção no Cargo:</strong> Mesmo com <strong>dois \'warns\' ativos</strong> e um histórico de comportamento tóxico, Marçal continuou (e continua) atuando na moderação e como \'helper\'.',
+                'sectionModLi2': '<strong>Proteção da Administração:</strong> Relatos indicam que seu \'warn\' foi <strong>removido recentemente por "ser amigo dos donos"</strong>, provando que as regras não se aplicam a todos. A moderação ativamente deu o cargo a ele e tenta esconder seu histórico.',
+                'sectionModLi3': '<strong>Ambiente +18:</strong> Há relatos de que a simples presença de Marçal em \'calls\' é o estopim para <strong>"conversas de putaria +18"</strong>, normalizando um ambiente que as próprias regras do servidor proíbem, mas que é tolerado pela administração quando vindo de seus aliados.',
+                'sectionModP3': 'Essa dualidade de critérios corrói a legitimidade da moderação e fomenta um ambiente de desconfiança e injustiça.',
+                'visualEvidenceMarcal': 'Provas Visuais (Caso Marçal):',
+                'altMarcal1': 'Prova de moderação inconsistente 1 - Warn Marçal PT',
+                'altMarcal2': 'Prova de moderação inconsistente 2 - Warn Marçal EN',
+                'sectionAbuseTitle': '3. Abuso de Poder e Supressão da Comunidade',
+                'sectionAbuseP1': 'O caso Marçal é um sintoma de um problema maior: o uso do sistema de moderação como uma ferramenta de controle pessoal e abuso de poder, em vez de um mecanismo para a saúde da comunidade.',
+                'sectionAbuseLi1': '<strong>Uso Pessoal do Sistema:</strong> Fica evidente que o sistema de \'WARN\' é usado <strong>"para uso deles" (administração)</strong>, e não para aplicar punições justas em quem merece. As punições são seletivas e baseadas em amizade.',
+                'sectionAbuseLi2': '<strong>Falta de Liberdade de Expressão:</strong> O servidor opera sob um regime onde a crítica não é tolerada. Múltiplos usuários relatam que <strong>"se você não venerar o dono, você provavelmente vai ganhar mute ou ban"</strong>.',
+                'sectionAbuseLi3': '<strong>Ambiente Hostil:</strong> A liberdade de expressão é nula, criando uma cultura de medo onde apenas o enaltecimento da administração é permitido, sufocando qualquer forma de debate ou crítica construtiva.',
+                'sectionAbuseLi4': '<strong>Supressão de Denúncias Graves:</strong> Em um incidente notório, um usuário foi <strong>mutado por 24 horas</strong> após reportar à staff uma imagem de outro usuário que alegava ser pedófilo. A staff levou 10 minutos para ver a denúncia e, em vez de agir contra o infrator, puniu o denunciante, configurando um claro caso de supressão e injustiça.',
+                'visualEvidenceAbuse': 'Provas Visuais (Abuso de Poder):',
+                'altAbuse1': 'provas do mute injusto do usuário Vinni por simplesmente denunciar um crime',
+                'sectionMoneyTitle': '4. Monetização Agressiva e Não Transparente',
+                'sectionMoneyP1': 'Existem fortes indícios de que o servidor funciona como uma fachada para a monetização pessoal de Ayuky, explorando o trabalho de desenvolvedores e a generosidade da comunidade.',
+                'sectionMoneyLi1': '<strong>Fontes de Renda Múltiplas:</strong> Ayuky recebe financiamento através de doações diretas, comissões e uma página na plataforma <strong>Ko-fi</strong>.',
+                'sectionMoneyLi2': '<strong>Monetização de Código Alheio:</strong> A principal acusação é que ele "monetiza com o trabalho de outras pessoas", atuando como um intermediário que cataloga e distribui o trabalho de desenvolvedores, recebendo fundos por isso.',
+                'sectionMoneyLi3': '<strong>Falta de Transparência:</strong> O servidor, com mais de 40.000 membros, gera um volume considerável de doações. No entanto, não há prestação de contas sobre onde esse dinheiro é aplicado. Relatos sugerem que os fundos são <strong>desviados para uso pessoal</strong>, em vez de reinvestidos na comunidade ou nos projetos.',
+                'sectionGleTitle': '5. Vazamento da Beta da GLE Ports e Campanha de Difamação',
+                'sectionGleP1': 'Um dos incidentes mais graves foi o vazamento deliberado de um projeto em desenvolvimento, seguido por uma campanha hostil para autopromoção.',
+                'sectionGleBq1': "Relato de Ryu (Ex-Moderador do Silksong Mobile Modding):",
+                'sectionGleP2': 'Investigações aprofundadas e relatos adicionais desmentem a justificativa inicial de Ayuky ("a versão não rodou no celular dele") e revelam suas verdadeiras motivações:',
+                'sectionGleLi1': '<strong>Motivação Real:</strong> O vazamento foi premeditado, com o objetivo de <strong>inflar o próprio ego</strong> e <strong>atrair membros para seu servidor</strong>.',
+                'sectionGleLi2': '<strong>"EXPOSED" Fabricado:</strong> Logo após o vazamento, Ayuky publicou seu próprio "exposed" contra a equipe da GLE Ports para se posicionar como vítima e difamar os desenvolvedores.',
+                'sectionGleLi3': '<strong>Falsa Acusação de Malware:</strong> Posteriormente, surgiram acusações infundadas de que a equipe Weave Wing (relacionada ao caso) distribuía malware, uma tática para minar a concorrência e desviar a atenção de suas próprias ações.',
+                'sectionGleH3': 'Desdobramentos: Acusações Cruzadas e Difamação',
+                'sectionGleP3': 'O caso GLE Ports escalou para uma campanha de difamação mais ampla, revelando táticas questionáveis para manter o controle da narrativa:',
+                'sectionGleLi4': '<strong>Tentativa de Acobrimento:</strong> Foi revelado que Ayuky <strong>pediu para \'Ryu\' (também conhecido como \'Hann\') para esconder o fato</strong> de que ele foi o responsável pelo vazamento, uma clara tentativa de manipular os fatos.',
+                'sectionGleLi5': '<strong>Narrativa de "Ambos Erraram":</strong> Embora alguns apontem que "em alguns pontos a gle Ports errou", é ressaltado que Ayuky "ainda estava errado", e suas ações subsequentes de difamação agravaram a situação.',
+                'sectionGleLi6': '<strong>Ataques a outros Servidores (Caso Tavv):</strong> Recentemente, a administração de Ayuky foi vista <strong>zombando do servidor de \'Tavv\'</strong>, um desenvolvedor respeitado. Eles acusam o servidor de ser uma "panela" (clique) e, de forma grave, de <strong>"ter nazistas lá"</strong>.',
+                'sectionGleLi7': '<strong>HipocrisIA:</strong> Usuários apontam a ironia da situação, destacando que Tavv "não se envolve em nenhuma briga", enquanto "já o ayuky em menos de 3 meses tem [polêmicas] GLE ports [e] weave wings, lamentável". Os ataques são vistos como uma tática de distração para difamar concorrentes.',
+                'visualEvidenceSmear': 'Provas Visuais (Campanha de Difamação):',
+                'altSmear1': 'Acusação falsa de spyware',
+                'altSmear2': 'Pedido de desculpas da Weave Team',
+                'altSmear3': 'Prova de Ayuky pedindo para Ryu (Hann) encobrir o vazamento',
+                'altSmear4': 'Prova da administração zombando do servidor de Tavv',
+                'altSmear5': 'Prova adicional (placeholder)',
+                'footerDisclaimer': 'Este documento é uma compilação de denúncias e evidências fornecidas por membros da comunidade. Seu propósito é informativo.',
+                'footerDatePrefix': 'Última atualização:',
+                'altModal': 'Imagem em tela cheia'
+            }
+        };
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Variáveis de Idioma e Data ---
+            let currentLang = 'en'; // Inglês é o padrão
+            const siteDate = new Date();
+            const langToggleButton = document.getElementById('langToggle');
+
+            // --- Função Principal de Atualização de Idioma ---
+            const updateLanguage = (lang) => {
+                const langData = translations[lang];
+
+                // 1. Atualiza o atributo 'lang' da tag <html>
+                document.documentElement.lang = lang;
+
+                // 2. Atualiza o Título e Meta Tags
+                document.title = langData.pageTitle;
+                document.querySelector('meta[name="description"]').setAttribute('content', langData.metaDescription);
+                document.querySelector('meta[property="og:title"]').setAttribute('content', langData.ogTitle);
+                document.querySelector('meta[property="og:description"]').setAttribute('content', langData.ogDescription);
+
+                // 3. Atualiza todo o texto do corpo com 'data-lang-key'
+                document.querySelectorAll('[data-lang-key]').forEach(el => {
+                    const key = el.dataset.langKey;
+                    if (langData[key]) {
+                        el.innerHTML = langData[key];
+                    }
+                });
+
+                // 4. Atualiza todos os atributos 'alt' de imagens com 'data-lang-key-alt'
+                document.querySelectorAll('[data-lang-key-alt]').forEach(img => {
+                    const key = img.dataset.langKeyAlt;
+                    if (langData[key]) {
+                        img.setAttribute('alt', langData[key]);
+                    }
+                });
+
+                // 5. Atualiza o texto do botão de idioma e aria-label
+                langToggleButton.textContent = langData.langToggle;
+                langToggleButton.setAttribute('aria-label', langData.langToggleAria);
+
+                // 6. Atualiza a data do rodapé com o locale correto
+                const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById('last-updated').textContent = siteDate.toLocaleDateString(langData.locale, dateOptions);
+            };
+
+            // --- Event Listener para o Botão de Idioma ---
+            langToggleButton.addEventListener('click', () => {
+                // Alterna o idioma atual
+                currentLang = (currentLang === 'en') ? 'pt' : 'en';
+                // Chama a função de atualização
+                updateLanguage(currentLang);
+            });
+
+            // --- Inicialização da Data no Rodapé (executa no carregamento inicial) ---
+            // O idioma padrão 'en' já está no HTML, mas a data é dinâmica.
+            const initialLangData = translations[currentLang];
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('last-updated').textContent = siteDate.toLocaleDateString(initialLangData.locale, dateOptions);
+
+            
+            // --- Funcionalidade Original do Modal de Imagem (Preservada) ---
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImageContent');
+            const closeModalBtn = document.getElementById('closeModal');
+            const evidenceItems = document.querySelectorAll('.evidence-item img');
+            const container = document.querySelector('.container');
+
+            evidenceItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    modal.classList.add('active');
+                    modalImg.src = item.src;
+                    document.body.classList.add('modal-open');
+                    if (container) {
+                        container.classList.add('modal-content-blur');
+                    }
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+                if (container) {
+                    container.classList.remove('modal-content-blur');
+                }
+            };
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
