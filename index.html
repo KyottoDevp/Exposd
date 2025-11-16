@@ -63,7 +63,8 @@
             transition: filter 0.3s ease-in-out;
         }
 
-        .container.modal-content-blur {
+        /* O blur SÓ é aplicado quando o modal de imagem está aberto */
+        body.modal-open .container {
             filter: blur(8px);
         }
 
@@ -151,17 +152,15 @@
         #monetization h2::before {
             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 1v22'/%3E%3Cpath d='M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'/%3E%3C/svg%3E") no-repeat center / contain;
         }
-        /* O SVG para 'hornet-case' estava quebrado (GgtC/svg>). Corrigido. */
-        #hornet-case h2::before {
-             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 22h4'/%3E%3Cpath d='M4 14a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2'/%3E%3Cpath d='M2 14h20'/%3E%3Cpath d='M14 18v-4h-4v4'/%3E%3C/svg%3E") no-repeat center / contain;
-        }
         #gle-case h2::before {
             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E") no-repeat center / contain;
         }
-        #chat-content h2::before {
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E") no-repeat center / contain;
+        #apologies h2::before {
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpolyline points='14 2 14 8 20 8'/%3E%3Cline x1='16' y1='13' x2='8' y2='13'/%3E%3Cline x1='16' y1='17' x2='8' y2='17'/%3E%3Cpolyline points='10 9 9 9 8 9'/%3E%3C/svg%3E") no-repeat center / contain;
         }
-        /* NOVO ÍCONE PARA A SEÇÃO "CONTACT" */
+        #video-evidence h2::before {
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='23 7 16 12 23 17 23 7'/%3E%3Crect x='1' y='5' width='15' height='14' rx='2' ry='2'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
         #contact h2::before {
             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/%3E%3C/svg%3E") no-repeat center / contain;
         }
@@ -266,6 +265,67 @@
             display: block;
         }
 
+        /* --- Seção de Provas em Vídeo --- */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-card {
+            background-color: var(--color-background); /* Fundo mais escuro */
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .video-card-content {
+            padding: 20px;
+        }
+
+        .video-card-content h3 {
+            font-size: 1.2em;
+            color: var(--color-text-primary);
+            margin-top: 0;
+            margin-bottom: 10px;
+            /* Garante que o texto quebre e não transborde */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .video-card-content p {
+            font-size: 1em;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            /* Proporção de Shorts (ex: 9:16) -> 16 / 9 * 100 = 177.77% */
+            /* Vamos usar uma altura fixa alta para shorts */
+            height: 500px; 
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
         /* --- Modal de Imagem --- */
         .image-modal {
             position: fixed;
@@ -274,10 +334,10 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.85);
-            display: flex;
+            display: none; /* Alterado de 'flex' para 'none' por padrão */
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 2000; /* Z-index alto para o modal */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -285,6 +345,7 @@
         }
 
         .image-modal.active {
+            display: flex; /* Ativado via JS */
             opacity: 1;
             visibility: visible;
         }
@@ -306,6 +367,7 @@
             cursor: pointer;
             line-height: 1;
             transition: transform 0.2s ease;
+            z-index: 2001;
         }
         
         .close-modal:hover {
@@ -313,6 +375,50 @@
             color: var(--color-accent-primary);
         }
 
+        /* --- NOVO: Estilos da Notificação (Toast) --- */
+        .toast-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            max-width: 400px; /* Largura máxima, mas pode ser menor */
+            width: 90%; /* Responsivo em telas pequenas */
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-left: 5px solid var(--color-accent-primary); /* Destaque */
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-medium);
+            z-index: 3000; /* Acima de tudo */
+            
+            /* Animação de entrada e saída */
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            visibility: visible;
+        }
+
+        .toast-notification.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-120%); /* Desliza para fora à esquerda */
+            pointer-events: none; /* Não pode ser clicado ao sumir */
+        }
+
+        .toast-notification h3 {
+            font-size: 1.5em;
+            color: var(--color-accent-primary);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .toast-notification p {
+            font-size: 1em;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+        
         /* --- Rodapé --- */
         .footer {
             text-align: center;
@@ -323,12 +429,12 @@
             font-size: 0.9em;
         }
 
-        /* --- NOVO: Botão de Alternância de Idioma --- */
+        /* --- Botão de Alternância de Idioma --- */
         .lang-toggle {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 1001; /* Acima do overlay do modal */
+            z-index: 1001; /* Acima do conteúdo, abaixo dos modais/toasts */
             background-color: var(--color-surface);
             color: var(--color-accent-secondary);
             border: 2px solid var(--color-border);
@@ -349,7 +455,7 @@
             box-shadow: 0 8px 20px rgba(255, 193, 7, 0.1);
         }
 
-        /* --- NOVO: Botão de Contato --- */
+        /* --- Botão de Contato --- */
         .contact-button {
             display: inline-block;
             background-color: var(--color-accent-primary);
@@ -374,6 +480,10 @@
 </head>
 <body>
 
+    <div class="toast-notification" id="toastNotification">
+        <h3 data-lang-key="welcomeTitle">Notice</h3>
+        <p data-lang-key="welcomeMessage">Images and reports are completely real, believe it if you want. Please do not attack the server or the user; this is just a compilation.</p>
+    </div>
     <button class="lang-toggle" id="langToggle" aria-label="Change language to Portuguese">PT-BR</button>
 
     <div class="container">
@@ -477,8 +587,8 @@
                 <p data-lang-key="sectionMoneyP1">There are strong indications that the server functions as a front for Ayuky's personal monetization, exploiting the work of developers and the community's generosity.</p>
                 <ul>
                     <li data-lang-key="sectionMoneyLi1"><strong>Multiple Income Sources:</strong> Ayuky receives funding through direct donations, commissions, and a page on the <strong>Ko-fi</strong> platform.</li>
-                    <li data-lang-key="sectionMoneyLi2"><strong>Monetization of Others' Code:</strong> The main accusation is that he "monetizes other people's work," acting as an intermediary who catalogs and distributes developers' work, receiving funds for it.</li>
-                    <li data-lang-key="sectionMoneyLi3"><strong>Lack of Transparency:</strong> The server, with over 40,000 members, generates a considerable volume of donations. However, there is no accountability for where this money is applied. Reports suggest that the funds are <strong>diverted for personal use</strong>, instead of being reinvested in the community or projects.</li>
+                    <li data-lang-key="sectionMoneyLi2"><strong>Monetização de Código Alheio:</strong> A principal acusação é que ele "monetiza com o trabalho de outras pessoas", atuando como um intermediário que cataloga e distribui o trabalho de desenvolvedores, recebendo fundos por isso.</li>
+                    <li data-lang-key="sectionMoneyLi3"><strong>Falta de Transparência:</strong> O servidor, com mais de 40.000 membros, gera um volume considerável de doações. No entanto, não há prestação de contas sobre onde esse dinheiro é aplicado. Relatos sugerem que os fundos são <strong>desviados para uso pessoal</strong>, em vez de reinvestidos na comunidade ou nos projetos.</li>
                 </ul>
             </section>
             
@@ -526,6 +636,57 @@
                  </figure>
             </section>
 
+            <section class="section" id="apologies">
+                <h2 data-lang-key="sectionApologyTitle">Formal Apologies</h2>
+                
+                <h3 data-lang-key="sectionApologyWWTitle">To: Weave Wing Team</h3>
+                <p data-lang-key="sectionApologyWWText">
+                    Hello Weave Wing team and GLE Ports, I don't know if you will read this, but I am apologizing to you.
+                    Weave Wing team, I made attacks against you simply because I was a moderator on Silksong Mobile Modding, trying to protect the image of a person who didn't give a damn about me. He only thought about quantity. He used your port and didn't even want to promote your server. It was good that you ended the partnership.
+                </p>
+
+                <h3 data-lang-key="sectionApologyGLETitle">To: GLE Ports</h3>
+                <p data-lang-key="sectionApologyGLEText">
+                    GLE Ports: I apologize for leaking your beta. It was wrong and disrespectful to the ports community. On the day the beta was leaked, Ayukystar told me not to sleep (I hadn't slept for 2 days due to insomnia). He asked me not to sleep, saying that at 11 PM he would send me a message leaking your beta. He tried to change the package name and icon of your game (he failed). After he failed, he said he would leak it anyway, and as he said, he created a message and asked me to post it in all channels (which I did). I deeply regret this. I am trying to improve as a person!
+                </p>
+            </section>
+
+            <section class="section" id="video-evidence">
+                <h2 data-lang-key="sectionVideoTitle">Video Evidence</h2>
+                <div class="video-gallery">
+                    
+                    <div class="video-card">
+                        <div class="video-embed">
+                            <iframe 
+                                src="https://www.youtube.com/embed/CONrPSvc5-8" 
+                                title="Evidence of the Spy Bot and How it Works" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-card-content">
+                            <h3 data-lang-key="video1Title">Evidence of the Spy Bot and How it Works</h3>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-embed">
+                            <iframe 
+                                src="https://www.youtube.com/embed/Qey-0OxKFYs" 
+                                title="Spy Bot Logs (All Channels)" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-card-content">
+                            <h3 data-lang-key="video2Title">Spy Bot Logs (All Channels)</h3>
+                        </div>
+                    </div>
+                    </div>
+            </section>
+
             <section class="section" id="contact">
                 <h2 data-lang-key="sectionContactTitle">Stay Tuned</h2>
                 <p data-lang-key="sectionContactP1">If you have any information, please press this button and get in touch.</p>
@@ -548,9 +709,7 @@
     </div>
 
     <script>
-        // --- NOVO: Dicionário de Traduções ---
-        // Este objeto armazena todo o texto em ambos os idiomas.
-        // As chaves (ex: 'pageTitle') correspondem aos atributos 'data-lang-key' no HTML.
+        // --- Dicionário de Traduções ---
         const translations = {
             'en': {
                 'locale': 'en-US',
@@ -618,7 +777,7 @@
                 'sectionGleP3': 'The GLE Ports case escalated into a broader smear campaign, revealing questionable tactics to maintain control of the narrative:',
                 'sectionGleLi4': "<strong>Cover-up Attempt:</strong> It was revealed that Ayuky <strong>asked 'Ryu' (also known as 'Hann') to hide the fact</strong> that he was responsible for the leak, a clear attempt to manipulate the facts.",
                 'sectionGleLi5': '<strong>"Both Were Wrong" Narrative:</strong> Although some point out that "GLE Ports was wrong on some points," it is emphasized that Ayuky "was still wrong," and his subsequent actions of defamation worsened the situation.',
-                'sectionGleLi6': "<strong>Attacks on Other Servers (Tavv Case):</strong> Recently, Ayuky's administration was seen <strong>mocking the server of 'Tavv,'</strong> a respected developer. They accuse the server of being a \"clique\" and, seriously, of <strong>\"having Nazis there.\"</strong>",
+                'sectionGGleLi6': "<strong>Attacks on Other Servers (Tavv Case):</strong> Recently, Ayuky's administration was seen <strong>mocking the server of 'Tavv,'</strong> a respected developer. They accuse the server of being a \"clique\" and, seriously, of <strong>\"having Nazis there.\"</strong>",
                 'sectionGleLi7': "<strong>Hypocrisy:</strong> Users point out the irony of the situation, highlighting that Tavv \"doesn't get involved in any fights,\" while \"Ayuky, in less than 3 months, has [controversies with] GLE ports [and] Weave Wings, pathetic.\" The attacks are seen as a distraction tactic to defame competitors.",
                 'sectionGleLi8': "<strong>Fabricated Virus Accusation:</strong> Users say he invented a virus in the Weave Wings team's port because he wasn't going to win, but the game code... I can prove this is true. I analyzed the files from version 1.1.2. And there were no viruses or malware; on the day he locked the server, he was preparing a defense statement. He was finding ways to mislead because he had become unpopular with users.",
                 'visualEvidenceSmear': 'Visual Evidence (Smear Campaign):',
@@ -627,6 +786,20 @@
                 'altSmear3': 'Proof of Ayuky asking Ryu (Hann) to cover up the leak',
                 'altSmear4': "Proof of the administration mocking Tavv's server",
                 'altSmear5': 'Additional proof (placeholder)',
+                
+                'sectionApologyTitle': 'Formal Apologies',
+                'sectionApologyWWTitle': 'To: Weave Wing Team',
+                'sectionApologyWWText': "Hello Weave Wing team and GLE Ports, I don't know if you will read this, but I am apologizing to you. Weave Wing team, I made attacks against you simply because I was a moderator on Silksong Mobile Modding, trying to protect the image of a person who didn't give a damn about me. He only thought about quantity. He used your port and didn't even want to promote your server. It was good that you ended the partnership.",
+                'sectionApologyGLETitle': 'To: GLE Ports',
+                'sectionApologyGLEText': "GLE Ports: I apologize for leaking your beta. It was wrong and disrespectful to the ports community. On the day the beta was leaked, Ayukystar told me not to sleep (I hadn't slept for 2 days due to insomnia). He asked me not to sleep, saying that at 11 PM he would send me a message leaking your beta. He tried to change the package name and icon of your game (he failed). After he failed, he said he would leak it anyway, and as he said, he created a message and asked me to post it in all channels (which I did). I deeply regret this. I am trying to improve as a person!",
+                
+                'sectionVideoTitle': 'Video Evidence',
+                'video1Title': 'Evidence of the Spy Bot and How it Works',
+                'video2Title': 'Spy Bot Logs (All Channels)',
+                
+                'welcomeTitle': 'Notice',
+                'welcomeMessage': 'Images and reports are completely real, believe it if you want. Please do not attack the server or the user; this is just a compilation.',
+
                 'sectionContactTitle': 'Stay Tuned',
                 'sectionContactP1': 'If you have any information, please press this button and get in touch.',
                 'contactButton': 'Contact Us',
@@ -703,13 +876,27 @@
                 'sectionGleLi5': '<strong>Narrativa de "Ambos Erraram":</strong> Embora alguns apontem que "em alguns pontos a gle Ports errou", é ressaltado que Ayuky "ainda estava errado", e suas ações subsequentes de difamação agravaram a situação.',
                 'sectionGleLi6': '<strong>Ataques a outros Servidores (Caso Tavv):</strong> Recentemente, a administração de Ayuky foi vista <strong>zombando do servidor de \'Tavv\'</strong>, um desenvolvedor respeitado. Eles acusam o servidor de ser uma "panela" (clique) e, de forma grave, de <strong>"ter nazistas lá"</strong>.',
                 'sectionGleLi7': '<strong>HipocrisIA:</strong> Usuários apontam a ironia da situação, destacando que Tavv "não se envolve em nenhuma briga", enquanto "já o ayuky em menos de 3 meses tem [polêmicas] GLE ports [e] weave wings, lamentável". Os ataques são vistos como uma tática de distração para difamar concorrentes.',
-                'sectionGleLi8': '<strong>Acusação de Vírus Fabricada:</strong> Usuários dizem que ele inventou um vírus na port da equipe Weave Wings porque não ia ganhar, mas o código do jogo... Eu posso provar que isso é verdade. Eu analisei os arquivos da versão 1.1.2. E não havia vírus ou malware; no dia em que ele bloqueou o servidor, ele estava preparando uma declaração de defesa. Ele estava encontrando maneiras de enganar porque havia se tornado impopular entre os usuários.',
+                'sectionGleLi8': '<strong>Acusação de Vírus Fabricada:</strong> Usuários dizem que ele inventou um vírus na port da equipe Weave Wings porque não ia ganhar, mas o código do jogo... Eu posso provar que isso é verdade. Eu analisei os arquivos da versão 1.1.2. E não havia vírus ou malware; no dia em que ele bloqueou o servidor, ele estava preparando uma declaração de defesa. Ele estavaNÃO encontrando maneiras de enganar porque havia se tornado impopular entre os usuários.',
                 'visualEvidenceSmear': 'Provas Visuais (Campanha de Difamação):',
                 'altSmear1': 'Acusação falsa de spyware',
                 'altSmear2': 'Pedido de desculpas da Weave Team',
                 'altSmear3': 'Prova de Ayuky pedindo para Ryu (Hann) encobrir o vazamento',
                 'altSmear4': 'Prova da administração zombando do servidor de Tavv',
                 'altSmear5': 'Prova adicional (placeholder)',
+
+                'sectionApologyTitle': 'Pedidos Formais de Desculpas',
+                'sectionApologyWWTitle': 'Para: Equipe Weave Wing',
+                'sectionApologyWWText': "Ola equipe weave Wing e GLE ports não sei vocês vão ler isso mas estou me desculpando com vocês , Weave wing equipe fiz ataques a vocês simplesmente por que eu era moderador do silksong mobile modding para tentar proteger a imagem de uma pessoa que não dava a mínima pra mim , ele só pensava em quantidade , ele usou o Port de vocês e não queria nem divulgar o servidor de vocês , foi bom vocês terem desfeito a parceria",
+                'sectionApologyGLETitle': 'Para: GLE Ports',
+                'sectionApologyGLEText': "Peço desculpas por ter vazado a beta de vocês , foi errado isso e um desrespeito com a comunidade de ports , no dia que a beta foi vazada ayukystar falou pra mim não dormir (fazia 2 dias que eu não dormia por insônia ) ele pediu pra não dormir que as 23 horas da noite ele iria me mandar uma mensagem vazando a beta de vocês , ele tentou mudar o nome do pacote e ícone do jogo de vocês (não conseguiu ) após ele não ter conseguido ele falou que iria vazar assim mesmo e como tido criou uma mensagem e pediu pra mim postar em todos canais (como dito postei ) Me arrependo muito disso , estou tentando melhorar como pessoa !",
+                
+                'sectionVideoTitle': 'Provas em Vídeo',
+                'video1Title': 'Provas do Bot Espião e Como Funciona',
+                'video2Title': 'Logs do Bot de Todos os Canais',
+                
+                'welcomeTitle': 'Aviso',
+                'welcomeMessage': 'Imagens e relatos totalmente reais, acredite se você quiser. Por favor, não faça ataques ao servidor nem ao usuário, isto é apenas um compilamento.',
+
                 'sectionContactTitle': 'Aguardem',
                 'sectionContactP1': 'Se você tiver alguma informação, clique neste botão e entre em contato.',
                 'contactButton': 'Entre em Contato',
@@ -731,6 +918,7 @@
             // --- Função Principal de Atualização de Idioma ---
             const updateLanguage = (lang) => {
                 const langData = translations[lang];
+                if (!langData) return; // Segurança
 
                 // 1. Atualiza o atributo 'lang' da tag <html>
                 document.documentElement.lang = lang;
@@ -745,6 +933,7 @@
                 document.querySelectorAll('[data-lang-key]').forEach(el => {
                     const key = el.dataset.langKey;
                     if (langData[key]) {
+                        // Usamos .innerHTML para renderizar tags aninhadas como <strong>
                         el.innerHTML = langData[key];
                     }
                 });
@@ -775,36 +964,28 @@
             });
 
             // --- Inicialização da Data no Rodapé (executa no carregamento inicial) ---
-            // O idioma padrão 'en' já está no HTML, mas a data é dinâmica.
             const initialLangData = translations[currentLang];
             const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('last-updated').textContent = siteDate.toLocaleDateString(initialLangData.locale, dateOptions);
 
             
-            // --- Funcionalidade Original do Modal de Imagem (Preservada) ---
+            // --- Funcionalidade do Modal de Imagem (Preservada) ---
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImageContent');
             const closeModalBtn = document.getElementById('closeModal');
             const evidenceItems = document.querySelectorAll('.evidence-item img');
-            const container = document.querySelector('.container');
 
             evidenceItems.forEach(item => {
                 item.addEventListener('click', () => {
                     modal.classList.add('active');
                     modalImg.src = item.src;
-                    document.body.classList.add('modal-open');
-                    if (container) {
-                        container.classList.add('modal-content-blur');
-                    }
+                    document.body.classList.add('modal-open'); // Adiciona blur
                 });
             });
 
             const closeModal = () => {
                 modal.classList.remove('active');
-                document.body.classList.remove('modal-open');
-                if (container) {
-                    container.classList.remove('modal-content-blur');
-                }
+                document.body.classList.remove('modal-open'); // Remove blur
             };
 
             closeModalBtn.addEventListener('click', closeModal);
@@ -818,6 +999,26 @@
                     closeModal();
                 }
             });
+
+            // --- NOVO: Funcionalidade da Notificação (Toast) ---
+            const toast = document.getElementById('toastNotification');
+
+            if (toast) {
+                // 1. Definir o temporizador para 5 segundos
+                setTimeout(() => {
+                    toast.classList.add('hidden'); // Adiciona a classe que o esconde
+                }, 5000); // 5000 milissegundos = 5 segundos
+
+                // 2. (Opcional) Remover o elemento do DOM após a animação de saída
+                // 5000ms (tempo) + 500ms (animação CSS)
+                setTimeout(() => {
+                    toast.remove(); // Limpa o elemento da página
+                }, 5500); 
+            }
+
+            // Inicializa o idioma na primeira carga (incluindo o novo toast)
+            updateLanguage(currentLang);
+
         });
     </script>
 
